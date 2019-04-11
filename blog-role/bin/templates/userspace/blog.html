@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head th:replace="~{fragments/header :: header}">
+</head>
+<body>
+<!-- Page Content -->
+<div class="container blog-content-container">
+
+    <div class="row">
+
+        <!-- Blog Entries Column -->
+        <div class="col-md-8">
+
+            <!-- Blog Post -->
+            <div class="card mb-4">
+                <div class="card-block">
+                    <h2 class="card-title">
+							<span>
+			                  <a href="/u/Carl" title="Carl">
+			                    <img src="https://Carl.com/images/Carl_181_181.jpg" class="blog-avatar-50"
+                                     alt="Carl">
+			                  </a>
+					        </span>
+                        <a href="/u/Carl/blogs/1" class="card-link" title="Carl">
+                            OAuth 2.0 Principles and practices of certification
+                        </a></h2>
+                    <div class="card-text">
+                        <a href="/u/Carl" class="card-link">Carl</a> Release at 2019-03-17 <i class="fa fa-eye" aria-hidden="true">210</i>
+                        <i class="fa fa-heart-o" aria-hidden="true">10</i> <i class="fa fa-comment-o"
+                                                                              aria-hidden="true">110</i>
+                    </div>
+                    <hr>
+                    <article class="post-content">
+                        <p>The benefits of using OAuth 2.0 authentication are clearly visible. You only need to use the same account password to access it on various websites, eliminating the cumbersome process of registering on each website.
+                                                         This article introduces the principles of OAuth 2.0 and demonstrates the process of OAuth 2.0 authentication based on Spring Security and GitHub accounts.</p>
+
+                        <h2 id="什么是-oauth-20">What's OAuth 2.0</h2>
+                        <p>The specification of OAuth 2.0 can refer to: <a href="https://tools.ietf.org/html/rfc6749">RFC 6749</a></p>
+                        <p>OAuth is an open standard that allows users to let third-party applications access private resources (such as photos, videos, contact lists) that the user stores on a website without having to provide a username and password to a third-party application. Currently, the latest version of OAuth is 2.0</p>
+                        <p>OAuth
+                            Allow users to provide a token instead of a username and password to access the data they store in a particular service provider. Each token authorizes a particular website (eg, a video editing website) to access a particular resource (eg, just a video in a certain album) for a specific period of time (eg, within the next 2 hours). This way, OAuth
+                            Allow users to authorize third-party websites to access information they store on other service providers without sharing their access permissions or all of their data.</p>
+                        <h2 id="oauth-20-的核心概念">The core concept of OAuth 2.0</h2>
+                        <p>OAuth 2.0 has four main types of roles:</p>
+                        <ul>
+                            <li>resource owner: resource owner, the "user" of the terminal</li>
+                            <li>resource server: The resource server, the service provider, stores protected resources. To access these resources, you need to get an access token (access
+                                                                 Token). It can be the same server as the authentication server, or it can be a different server. If we visit the Sina blog site, then if you use the Sina blog account to log in to the Sina blog site, then the Sina blog resource and the Sina blog authentication are the same, can be considered the same server. If we are a Sina blog account to log in to know, then obviously the resources and Sina authentication are not a server.
+                            </li>
+                            <li>client: Client, a third-party application that represents a resource request to a protected resource.</li>
+                            <li>authorization server: Authorization server, after verifying the resource owner and obtaining authorization, the access token will be issued to the client.
+                            </li>
+                        </ul>
+                        <h2 id="oauth-20-的认证流程">OAuth 2.0 certification process</h2>
+                        <p>The certification process is as follows：</p>
+
+                        <ul>
+                            <li>（A) After the user opens the client, the client requests authorization from the resource owner (user).</li>
+                            <li>（B) The user agrees to give the client authorization.</li>
+                            <li>（C）The client uses the authorization obtained in the previous step to apply for an access token from the authentication server.</li>
+                            <li>（D）After the authentication server authenticates the client, it confirms that it is correct and agrees to issue an access token.</li>
+                            <li>（E）The client uses the access token to request the resource server to obtain the resource.</li>
+                            <li>（F）The resource server confirms that the token is correct and agrees to open the resource to the client.</li>
+                        </ul>
+                        <p>Among them, user authorization has four modes:</p>
+                        <ul>
+                            <li>authorization code</li>
+                            <li>implicit</li>
+                            <li>resource owner password credentials</li>
+                            <li>client credentials</li>
+                        </ul>
+
+                        <h2 id="源码">Source Code</h2>
+                        <ul>
+                            <li>Spring Security Tutorial:<a
+                                    href="https://github.com/Carl/spring-security-tutorial/tree/master/samples/oauth2-github">https://github.com/Carl/spring-security-tutorial/tree/master/samples/oauth2-github</a>
+                            </li>
+                        </ul>
+
+                </article>
+                    <hr>
+                </div>
+                <div class="card-block">
+
+
+                    <h5>Classification:<a href="/u/Carl/blogs?category=11">
+                        Spring Data
+                    </a></h5>
+
+                    <h5>Tags:
+                        <a href="/u/Carl/blogs?keyword=distributed"> <span class="badge badge-default">Web Design</span></a>
+                        <a href="/u/Carl/blogs?keyword=distributed"> <span class="badge badge-default">Jersey</span></a>
+                        <a href="/u/Carl/blogs?keyword=distributed"> <span class="badge badge-default">JavaScript</span></a>
+                        <a href="/u/Carl/blogs?keyword=distributed"> <span class="badge badge-default">CSS</span></a>
+                        <a href="/u/Carl/blogs?keyword=distributed"> <span class="badge badge-default">Java</span></a>
+                        <a href="/u/Carl/blogs?keyword=distributed"> <span class="badge badge-default">Freebies</span></a>
+
+                    </h5>
+                </div>
+
+                <div class="card-block">
+
+
+                    <h5>Comments:</h5>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <textarea class="blog-textarea" placeholder="Leave a commnet to read the blog~"></textarea>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary float-right">Comment</button>
+                    <button class="btn btn-primary float-right">Thumb</button>
+
+                </div>
+                <div class="card-block">
+
+                    <div class="row">
+                        <h2 class="card-title col-lg-1 col-md-2">
+							<span>
+			                  <a href="/u/Carl" title="Carl">
+			                    <img src="https://Carl.com/images/Carl_181_181.jpg" class="blog-avatar-50"
+                                     alt="Carl">
+			                  </a>
+					        </span>
+                        </h2>
+                        <div class="card-text col-lg-11 col-md-10">
+                            <a href="/u/Carl" class="card-link">Carl</a> 1th Floor 2019-03-17 14:20
+                            <p>Not Bad!</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Right container -->
+        <div class="col-md-4">
+            <div>
+                <!-- blog menu -->
+                <div class="card ">
+                    <h5 class="card-header"><i class="fa fa-bars" aria-hidden="true"></i> Article catalog</h5>
+                    <div class="card-block">
+                        <div class="row">
+                            <div id="catalog" class="col-lg-12"></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    <!-- /.row -->
+
+</div>
+<!-- /.container -->
+
+
+<div th:replace="~{fragments/footer :: footer}">...</div>
+<script src="../../js/blog.js" th:src="@{/js/blog.js}"></script>
+</body>
+</html>
